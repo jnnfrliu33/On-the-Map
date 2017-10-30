@@ -238,26 +238,23 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2uU-bE-eWQ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="n9v-Iz-xvb" id="fG2-xr-yKe"/>
+                                </connections>
                             </mapView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Vdc-yC-UYO">
-                                <rect key="frame" x="177.5" y="331" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Vdc-yC-UYO" firstAttribute="centerY" secondItem="HCs-2q-Ckc" secondAttribute="centerY" id="5p2-4l-Rlr"/>
                             <constraint firstItem="2uU-bE-eWQ" firstAttribute="top" secondItem="HCs-2q-Ckc" secondAttribute="top" id="JF1-hR-JRv"/>
                             <constraint firstItem="2uU-bE-eWQ" firstAttribute="leading" secondItem="HCs-2q-Ckc" secondAttribute="leading" id="QGD-Q0-Aa8"/>
                             <constraint firstItem="HCs-2q-Ckc" firstAttribute="bottom" secondItem="2uU-bE-eWQ" secondAttribute="bottom" id="TEd-Lz-BA0"/>
                             <constraint firstItem="HCs-2q-Ckc" firstAttribute="trailing" secondItem="2uU-bE-eWQ" secondAttribute="trailing" id="try-KN-Qhd"/>
-                            <constraint firstItem="Vdc-yC-UYO" firstAttribute="centerX" secondItem="HCs-2q-Ckc" secondAttribute="centerX" id="xPy-F3-l4i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HCs-2q-Ckc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="MapViewSelected" id="04U-9Q-3v0"/>
                     <navigationItem key="navigationItem" title="On the Map" id="1RZ-Ya-vHZ"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="Vdc-yC-UYO" id="CwL-qU-Uj9"/>
                         <outlet property="mapView" destination="2uU-bE-eWQ" id="ZzW-Le-Ph3"/>
                     </connections>
                 </viewController>
