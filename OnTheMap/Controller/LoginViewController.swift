@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginPressed(_ sender: Any) {
         
         if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            print ("Username or Password Empty.")
+            AlertView.showAlert(controller: self, message: AlertView.Messages.usernameOrPasswordFieldEmpty)
         } else {
             
             self.activityIndicator.isHidden = false
@@ -50,7 +50,8 @@ class LoginViewController: UIViewController {
             UdacityClient.sharedInstance().postSession(username: usernameTextField.text!, password: passwordTextField.text!) { (result, error) in
                 
                 if let error = error {
-                    print (error)
+                    AlertView.showAlert(controller: self, message: error.localizedDescription)
+                    
                 } else {
                     if let userID = result?[UdacityClient.JSONResponseKeys.AccountKey] as? String {
                         

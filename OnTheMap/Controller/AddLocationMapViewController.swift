@@ -48,7 +48,7 @@ class AddLocationMapViewController: UIViewController {
             self.activityIndicator.stopAnimating()
             
         } else {
-            print ("Location not saved")
+            AlertView.showAlert(controller: self, message: AlertView.Messages.emptyPlacemark)
         }
     }
     
@@ -60,7 +60,7 @@ class AddLocationMapViewController: UIViewController {
         UdacityClient.sharedInstance().getUserData() { (result, error) in
             
             if let error = error {
-                print (error)
+                AlertView.showAlert(controller: self, message: error.localizedDescription)
             } else {
                 if let firstName = result?[UdacityClient.JSONResponseKeys.FirstName] as? String, let lastName = result?[UdacityClient.JSONResponseKeys.LastName] as? String {
                     
@@ -72,7 +72,7 @@ class AddLocationMapViewController: UIViewController {
                     ParseClient.sharedInstance().postStudentLocation(accountKey: UdacityClient.sharedInstance().userID!, firstName: firstName, lastName: lastName, mapString: ParseClient.sharedInstance().mapString!, mediaURL: ParseClient.sharedInstance().mediaURL!, latitude: ParseClient.sharedInstance().latitude!, longitude: ParseClient.sharedInstance().longitude!) { (result, error) in
                         
                         if let error = error {
-                            print (error)
+                            AlertView.showAlert(controller: self, message: error.localizedDescription)
                         } else {
                             if let objectID = result, objectID.isEmpty == false {
                                 

@@ -49,7 +49,7 @@ class MapViewController: UIViewController {
                     self.annotations.append(annotation)
                 }
             } else {
-                print (error ?? "empty error")
+                AlertView.showAlert(controller: self, message: AlertView.Messages.emptyError)
             }
             
             self.mapView.addAnnotations(self.annotations)

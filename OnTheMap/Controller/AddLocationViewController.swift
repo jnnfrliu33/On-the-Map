@@ -45,7 +45,7 @@ class AddLocationViewController: UIViewController {
             geocoder.geocodeAddressString(locationTextField.text!) { (placemarks, error) in
                 
                 if let error = error {
-                    print (error)
+                    AlertView.showAlert(controller: self, message: error.localizedDescription)
                 } else {
                     if let placemark = placemarks?.first {
                         
@@ -58,12 +58,16 @@ class AddLocationViewController: UIViewController {
                     }
                 }
             }
+        } else {
+            AlertView.showAlert(controller: self, message: AlertView.Messages.locationFieldEmpty)
         }
         
         if websiteTextField.text?.isEmpty == false {
             
             // Save the website url for POST request
             ParseClient.sharedInstance().mediaURL = websiteTextField.text
+        } else {
+            AlertView.showAlert(controller: self, message: AlertView.Messages.websiteFieldEmpty)
         }
     }
 }

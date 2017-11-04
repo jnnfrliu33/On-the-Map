@@ -32,7 +32,7 @@ class TableViewController: UITableViewController {
                     self.studentLocationsTableView.reloadData()
                 }
             } else {
-                print (error ?? "empty error")
+                AlertView.showAlert(controller: self, message: AlertView.Messages.emptyError)
             }
         }
     }

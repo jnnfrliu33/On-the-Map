@@ -43,7 +43,7 @@ class ParseClient: NSObject {
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error!)")
+                sendError((error?.localizedDescription)!)
                 return
             }
             
@@ -91,7 +91,7 @@ class ParseClient: NSObject {
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error!)")
+                sendError((error?.localizedDescription)!)
                 return
             }
             

@@ -33,13 +33,13 @@ class UdacityClient: NSObject {
             
             func sendError(_ error: String) {
                 print(error)
-                let userInfo = [NSLocalizedDescriptionKey : error]
+                let userInfo = [NSLocalizedDescriptionKey: error]
                 completionHandlerForUdacityGET(nil, NSError(domain: "taskForUdacityGETMethod", code: 1, userInfo: userInfo))
             }
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error!)")
+                sendError((error?.localizedDescription)!)
                 return
             }
             
@@ -88,7 +88,7 @@ class UdacityClient: NSObject {
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error!)")
+                sendError((error?.localizedDescription)!)
                 return
             }
             
@@ -144,7 +144,7 @@ class UdacityClient: NSObject {
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error!)")
+                sendError((error?.localizedDescription)!)
                 return
             }
             

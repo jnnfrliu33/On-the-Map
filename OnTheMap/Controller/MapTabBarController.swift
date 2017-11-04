@@ -23,8 +23,8 @@ class MapTabBarController: UITabBarController {
         
         UdacityClient.sharedInstance().deleteSession() { (result, error) in
             
-            if let error = error {
-                print (error)
+            if error != nil {
+                AlertView.showAlert(controller: self, message: AlertView.Messages.logoutFailed)
             } else {
                 if let sessionID = result?[UdacityClient.JSONResponseKeys.SessionID] as? String, sessionID.isEmpty == false {
 

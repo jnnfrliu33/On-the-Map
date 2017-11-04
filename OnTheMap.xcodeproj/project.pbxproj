@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6214A40A1FADF4260048257E /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6214A4091FADF4260048257E /* TextFieldDelegate.swift */; };
 		6214A40C1FAE01E50048257E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6214A40B1FAE01E50048257E /* RoundedButton.swift */; };
+		623FFC2E1FAE0B7900DE624A /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FFC2D1FAE0B7900DE624A /* AlertView.swift */; };
 		62A382411FA5D739004912F6 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A382401FA5D739004912F6 /* StudentInformation.swift */; };
 		62BA14131F9E1895001E8F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BA14121F9E1895001E8F2C /* AppDelegate.swift */; };
 		62BA14151F9E1895001E8F2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BA14141F9E1895001E8F2C /* LoginViewController.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		6214A4091FADF4260048257E /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 		6214A40B1FAE01E50048257E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		623FFC2D1FAE0B7900DE624A /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		62A382401FA5D739004912F6 /* StudentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		62BA140F1F9E1895001E8F2C /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62BA14121F9E1895001E8F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,10 +96,10 @@
 			isa = PBXGroup;
 			children = (
 				62CDB0801FA21E870079ACD5 /* GCD.swift */,
-				6214A4081FADF3FE0048257E /* Delegates */,
 				62BB37721F9F76E10064615C /* Model */,
 				62C72EA01FA1E9E100922D3F /* View */,
 				62BA14241F9E1DF9001E8F2C /* Controller */,
+				6214A4081FADF3FE0048257E /* Delegates */,
 				62C72E9C1FA1CE2700922D3F /* Assets */,
 				62C72E9D1FA1CE4A00922D3F /* Supporting Files */,
 			);
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				6214A40B1FAE01E50048257E /* RoundedButton.swift */,
+				623FFC2D1FAE0B7900DE624A /* AlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				62CDB0811FA21E870079ACD5 /* GCD.swift in Sources */,
 				62BB377D1F9F860B0064615C /* ParseConstants.swift in Sources */,
 				62BB377F1F9F86370064615C /* ParseClient.swift in Sources */,
+				623FFC2E1FAE0B7900DE624A /* AlertView.swift in Sources */,
 				62DC10501FA323B90074850F /* ParseConvenience.swift in Sources */,
 				62BA14281F9E1E82001E8F2C /* TableViewController.swift in Sources */,
 				62BB37781F9F77520064615C /* UdacityClient.swift in Sources */,
