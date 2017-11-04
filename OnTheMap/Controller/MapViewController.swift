@@ -21,14 +21,12 @@ class MapViewController: UIViewController {
     // MARK: Properties
     
     var studentLocations = [StudentInformation]()
+    var annotations = [MKPointAnnotation]()
     
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Create an MKPointAnnotation for each dictionary in "studentLocations"
-        var annotations = [MKPointAnnotation]()
         
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             if let studentLocations = studentLocations {
@@ -48,13 +46,13 @@ class MapViewController: UIViewController {
                     annotation.title = firstName + " " + lastName
                     annotation.subtitle = mediaURL
                     
-                    annotations.append(annotation)
+                    self.annotations.append(annotation)
                 }
             } else {
                 print (error ?? "empty error")
             }
             
-            self.mapView.addAnnotations(annotations)
+            self.mapView.addAnnotations(self.annotations)
             
             performUIUpdatesOnMain {
                 self.activityIndicator.stopAnimating()
