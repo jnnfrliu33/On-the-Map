@@ -63,4 +63,16 @@ extension TableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Access student location for a given row
+        let studentLocation = studentLocations[(indexPath as NSIndexPath).row]
+        
+        // Open the URL in Safari for the given row
+        let app = UIApplication.shared
+        if let toOpen = studentLocation.mediaURL {
+            app.open(URL(string: toOpen)!, options: [:], completionHandler: nil)
+        }
+    }
 }
