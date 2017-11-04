@@ -28,9 +28,6 @@ class AddLocationMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.activityIndicator.startAnimating()
-        self.activityIndicator.hidesWhenStopped = true
-        
         if placemark != nil {
             
             // Zoom in the map on the location
