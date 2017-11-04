@@ -153,6 +153,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="url"/>
+                                                <connections>
+                                                    <action selector="websiteTextFieldClicked:" destination="rtc-Kf-DVO" eventType="editingDidBegin" id="pVA-R8-xhW"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9s-xv-UAX" userLabel="Login Button">
                                                 <rect key="frame" x="0.0" y="76" width="275" height="30"/>

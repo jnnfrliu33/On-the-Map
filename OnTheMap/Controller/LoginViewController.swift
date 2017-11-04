@@ -21,12 +21,19 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var facebookLoginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: Properties
+    
+    let textFieldDelegate = TextFieldDelegate()
+    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.activityIndicator.isHidden = true
+        
+        usernameTextField.delegate = textFieldDelegate
+        passwordTextField.delegate = textFieldDelegate
     }
     
     // MARK: Actions

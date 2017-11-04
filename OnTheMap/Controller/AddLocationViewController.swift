@@ -22,8 +22,22 @@ class AddLocationViewController: UIViewController {
     // MARK: Properties
     
     lazy var geocoder = CLGeocoder()
+    let textFieldDelegate = TextFieldDelegate()
+    
+    // MARK: Life Cycle
+    
+    override func viewDidLoad() {
+        locationTextField.delegate = textFieldDelegate
+        websiteTextField.delegate = textFieldDelegate
+    }
     
     // MARK: Actions
+    
+    @IBAction func websiteTextFieldClicked(_ sender: Any) {
+        if websiteTextField.text == "" {
+            websiteTextField.text = "https://"
+        }
+    }
     
     @IBAction func findLocationPressed(_ sender: Any) {
         if locationTextField.text?.isEmpty == false {
