@@ -7,12 +7,45 @@
 //
 
 import UIKit
+import CoreLocation
 
 // MARK: - AddLocationViewController: UIViewController
 
 class AddLocationViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    // MARK: Outlets
+    
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var websiteTextField: UITextField!
+    @IBOutlet weak var findLocationButton: UIButton!
+    
+    lazy var geocoder = CLGeocoder()
+    
+    @IBAction func findLocationPressed(_ sender: Any) {
+        if locationTextField.text?.isEmpty == false {
+            
+            geocoder.geocodeAddressString(locationTextField.text!) { (placemarks, error) in
+                
+                if let error = error {
+                    print (error)
+                } else {
+                    if let placemark = placemarks?.first {
+                        
+                        let controller = self.storyboard!.instantiateViewController(withIdentifier: "AddLocationMapViewController") as! AddLocationMapViewController
+                        
+                        // Save the placemark information in the AddLocationMapViewController to be used
+                        controller.placemark = placemark
+                        
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    }
+                }
+            }
+        }
+        
+        if websiteTextField.text?.isEmpty == false {
+            
+            // Save the website url for POST request
+            ParseClient.sharedInstance().mediaURL = websiteTextField.text
+        }
     }
 }

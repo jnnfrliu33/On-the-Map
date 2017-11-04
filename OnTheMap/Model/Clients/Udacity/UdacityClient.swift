@@ -15,6 +15,8 @@ class UdacityClient: NSObject {
     // MARK: Properties
     
     var session = URLSession.shared
+    
+    // New student information
     var userID : String? = nil
     var firstName: String? = nil
     var lastName: String? = nil

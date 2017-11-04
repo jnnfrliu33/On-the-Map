@@ -65,7 +65,7 @@ extension MapViewController: MKMapViewDelegate {
     // Create a view with a "right callout accessory view"
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        let reuseId = "PinIcon"
+        let reuseId = "pin"
         
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         

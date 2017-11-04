@@ -15,7 +15,13 @@ class ParseClient: NSObject {
     // MARK: Properties
     
     var session = URLSession.shared
+    
+    // New student information
     var objectID: String? = nil
+    var mediaURL: String? = nil
+    var mapString: String? = nil
+    var latitude: Double? = nil
+    var longitude: Double? = nil
     
     // MARK: GET
     
