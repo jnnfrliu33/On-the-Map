@@ -16,6 +16,7 @@ class MapViewController: UIViewController {
     // MARK: Outlets
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Properties
     
@@ -54,6 +55,10 @@ class MapViewController: UIViewController {
             }
             
             self.mapView.addAnnotations(annotations)
+            
+            performUIUpdatesOnMain {
+                self.activityIndicator.stopAnimating()
+            }
         }
     }
 }

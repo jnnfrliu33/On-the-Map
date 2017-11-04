@@ -210,8 +210,11 @@
                                     <outlet property="delegate" destination="2Hz-OS-LrP" id="CXX-J0-OVh"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xra-ad-Tdi">
-                                <rect key="frame" x="109" y="551" width="156" height="30"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9sE-GC-XM5">
+                                <rect key="frame" x="177" y="333" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xra-ad-Tdi">
+                                <rect key="frame" x="109" y="545" width="156" height="36"/>
                                 <color key="backgroundColor" red="0.31334230303764343" green="0.69322562217712402" blue="0.87453764677047729" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="156" id="Wvg-kH-feV"/>
@@ -227,6 +230,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="9sE-GC-XM5" firstAttribute="centerX" secondItem="kqs-Ww-4bb" secondAttribute="centerX" id="1Db-hd-e1m"/>
+                            <constraint firstItem="9sE-GC-XM5" firstAttribute="centerY" secondItem="kqs-Ww-4bb" secondAttribute="centerY" id="3NF-Ne-crW"/>
                             <constraint firstItem="0k4-zt-HNI" firstAttribute="leading" secondItem="kqs-Ww-4bb" secondAttribute="leading" id="LdA-OI-UM8"/>
                             <constraint firstItem="xra-ad-Tdi" firstAttribute="centerX" secondItem="kqs-Ww-4bb" secondAttribute="centerX" id="Xfc-Hl-B8O"/>
                             <constraint firstItem="kqs-Ww-4bb" firstAttribute="trailing" secondItem="0k4-zt-HNI" secondAttribute="trailing" id="ahb-Df-Rrf"/>
@@ -237,6 +242,7 @@
                         <viewLayoutGuide key="safeArea" id="kqs-Ww-4bb"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="9sE-GC-XM5" id="NAU-hK-EfM"/>
                         <outlet property="finishButton" destination="xra-ad-Tdi" id="TfA-ph-0hj"/>
                         <outlet property="mapView" destination="0k4-zt-HNI" id="dkG-1E-L2c"/>
                     </connections>
@@ -259,12 +265,17 @@
                                     <outlet property="delegate" destination="n9v-Iz-xvb" id="fG2-xr-yKe"/>
                                 </connections>
                             </mapView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="c9g-Ik-veq">
+                                <rect key="frame" x="178" y="331" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="c9g-Ik-veq" firstAttribute="centerX" secondItem="HCs-2q-Ckc" secondAttribute="centerX" id="0aV-II-xx0"/>
                             <constraint firstItem="2uU-bE-eWQ" firstAttribute="top" secondItem="HCs-2q-Ckc" secondAttribute="top" id="JF1-hR-JRv"/>
                             <constraint firstItem="2uU-bE-eWQ" firstAttribute="leading" secondItem="HCs-2q-Ckc" secondAttribute="leading" id="QGD-Q0-Aa8"/>
                             <constraint firstItem="HCs-2q-Ckc" firstAttribute="bottom" secondItem="2uU-bE-eWQ" secondAttribute="bottom" id="TEd-Lz-BA0"/>
+                            <constraint firstItem="c9g-Ik-veq" firstAttribute="centerY" secondItem="HCs-2q-Ckc" secondAttribute="centerY" id="gxH-ST-0nT"/>
                             <constraint firstItem="HCs-2q-Ckc" firstAttribute="trailing" secondItem="2uU-bE-eWQ" secondAttribute="trailing" id="try-KN-Qhd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HCs-2q-Ckc"/>
@@ -272,6 +283,7 @@
                     <tabBarItem key="tabBarItem" title="" image="MapViewSelected" id="04U-9Q-3v0"/>
                     <navigationItem key="navigationItem" title="On the Map" id="1RZ-Ya-vHZ"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="c9g-Ik-veq" id="8EZ-Gd-h9h"/>
                         <outlet property="mapView" destination="2uU-bE-eWQ" id="ZzW-Le-Ph3"/>
                     </connections>
                 </viewController>
@@ -360,7 +372,7 @@
                                 <rect key="frame" x="114" y="587" width="148" height="30"/>
                                 <state key="normal" title="Log In With Facebook"/>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cXm-3r-bRk">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cXm-3r-bRk">
                                 <rect key="frame" x="177" y="334" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>

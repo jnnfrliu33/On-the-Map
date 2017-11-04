@@ -17,6 +17,7 @@ class AddLocationMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var finishButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Properties
     
@@ -26,6 +27,9 @@ class AddLocationMapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.hidesWhenStopped = true
         
         if placemark != nil {
             
@@ -44,6 +48,7 @@ class AddLocationMapViewController: UIViewController {
             ParseClient.sharedInstance().longitude = location?.coordinate.longitude
             
             self.mapView.addAnnotation(annotation)
+            self.activityIndicator.stopAnimating()
             
         } else {
             print ("Location not saved")

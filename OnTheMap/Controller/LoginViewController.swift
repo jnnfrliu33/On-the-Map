@@ -38,7 +38,6 @@ class LoginViewController: UIViewController {
         } else {
             
             self.activityIndicator.isHidden = false
-            self.activityIndicator.hidesWhenStopped = true
             self.activityIndicator.startAnimating()
             
             UdacityClient.sharedInstance().postSession(username: usernameTextField.text!, password: passwordTextField.text!) { (result, error) in
