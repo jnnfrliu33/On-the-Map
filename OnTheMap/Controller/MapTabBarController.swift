@@ -16,7 +16,6 @@ class MapTabBarController: UITabBarController {
 
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
-    @IBOutlet weak var addLocationButton: UIBarButtonItem!
     
     // MARK: Actions
     
@@ -38,5 +37,12 @@ class MapTabBarController: UITabBarController {
     }
     
     @IBAction func refreshPressed(_ sender: Any) {
+        
+        let mapViewController = self.viewControllers?[0] as! MapViewController
+        let tableViewController = self.viewControllers?[1] as! TableViewController
+        
+        // Reload the view controllers
+        mapViewController.loadView()
+        tableViewController.loadView()
     }
 }

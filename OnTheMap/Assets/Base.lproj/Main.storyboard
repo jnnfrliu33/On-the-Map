@@ -62,7 +62,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <outlet property="addLocationButton" destination="LFY-zN-d30" id="m20-sP-bjN"/>
                         <outlet property="logoutButton" destination="Zry-MI-0Hd" id="NBd-gn-KGg"/>
                         <outlet property="refreshButton" destination="fYZ-YC-J4E" id="SUb-E1-caR"/>
                         <segue destination="n9v-Iz-xvb" kind="relationship" relationship="viewControllers" id="lSi-GX-nvr"/>
