@@ -23,7 +23,7 @@ extension UdacityClient {
             if let error = error {
                 completionHandlerForUserData(nil, error)
             } else {
-                if let result = result?[ParameterKeys.UserInfoDictionary] as? [String:AnyObject] {
+                if let result = result?[JSONResponseKeys.UserInfoDictionary] as? [String:AnyObject] {
                     completionHandlerForUserData(result as AnyObject, nil)
                 } else {
                     completionHandlerForUserData(nil, NSError(domain: "getUserData parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse getUserData"]))

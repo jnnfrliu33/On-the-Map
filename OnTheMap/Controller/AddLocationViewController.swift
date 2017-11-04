@@ -19,7 +19,11 @@ class AddLocationViewController: UIViewController {
     @IBOutlet weak var websiteTextField: UITextField!
     @IBOutlet weak var findLocationButton: UIButton!
     
+    // MARK: Properties
+    
     lazy var geocoder = CLGeocoder()
+    
+    // MARK: Actions
     
     @IBAction func findLocationPressed(_ sender: Any) {
         if locationTextField.text?.isEmpty == false {

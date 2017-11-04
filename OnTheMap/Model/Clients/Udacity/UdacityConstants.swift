@@ -19,16 +19,6 @@ extension UdacityClient {
         static let AccountURL = "https://www.udacity.com/account/auth#!/signup"
     }
     
-    // MARK: Parameter Keys
-    struct ParameterKeys {
-        
-        // User Information
-        static let UserInfoDictionary = "user"
-        static let FirstName = "first_name"
-        static let LastName = "last_name"
-        static let FacebookID = "_facebook_id"
-    }
-    
     // MARK: JSON Body Keys
     struct JSONBodyKeys {
         static let Udacity = "udacity"
@@ -48,5 +38,11 @@ extension UdacityClient {
         static let Session = "session"
         static let SessionID = "id"
         static let Expiration = "expiration"
+        
+        // User Information
+        static let UserInfoDictionary = "user"
+        static let FirstName = "first_name"
+        static let LastName = "last_name"
+        static let FacebookID = "_facebook_id"
     }
 }
