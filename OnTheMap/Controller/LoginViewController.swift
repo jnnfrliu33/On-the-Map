@@ -60,6 +60,11 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func signUpPressed(_ sender: Any) {
+        let app = UIApplication.shared
+        app.open(URL(string: UdacityClient.Constants.SignUpURL)!, options: [:], completionHandler: nil)
+    }
+    
     // MARK: Login
     
     private func completeLogin() {

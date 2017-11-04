@@ -16,7 +16,7 @@ extension UdacityClient {
         // URLs
         static let AuthorizationURL = "https://www.udacity.com/api/session"
         static let UserDataURL = "https://www.udacity.com/api/users/"
-        static let AccountURL = "https://www.udacity.com/account/auth#!/signup"
+        static let SignUpURL = "https://www.udacity.com/account/auth#!/signup"
     }
     
     // MARK: JSON Body Keys
