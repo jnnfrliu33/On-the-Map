@@ -17,7 +17,7 @@ class AddLocationViewController: UIViewController {
     
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
-    @IBOutlet weak var findLocationButton: UIButton!
+    @IBOutlet weak var findLocationButton: RoundedButton!
     
     // MARK: Properties
     

@@ -16,7 +16,7 @@ class AddLocationMapViewController: UIViewController {
     // MARK: Outlets
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var finishButton: UIButton!
+    @IBOutlet weak var finishButton: RoundedButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Properties

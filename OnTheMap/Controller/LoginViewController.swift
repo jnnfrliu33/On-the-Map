@@ -16,9 +16,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginButton: RoundedButton!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var facebookLoginButton: UIButton!
+    @IBOutlet weak var facebookLoginButton: RoundedButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Properties

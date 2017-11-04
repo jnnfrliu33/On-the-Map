@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6214A40A1FADF4260048257E /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6214A4091FADF4260048257E /* TextFieldDelegate.swift */; };
+		6214A40C1FAE01E50048257E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6214A40B1FAE01E50048257E /* RoundedButton.swift */; };
 		62A382411FA5D739004912F6 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A382401FA5D739004912F6 /* StudentInformation.swift */; };
 		62BA14131F9E1895001E8F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BA14121F9E1895001E8F2C /* AppDelegate.swift */; };
 		62BA14151F9E1895001E8F2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BA14141F9E1895001E8F2C /* LoginViewController.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		6214A4091FADF4260048257E /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
+		6214A40B1FAE01E50048257E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		62A382401FA5D739004912F6 /* StudentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		62BA140F1F9E1895001E8F2C /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62BA14121F9E1895001E8F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,8 +93,8 @@
 		62BA14111F9E1895001E8F2C /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				6214A4081FADF3FE0048257E /* Delegates */,
 				62CDB0801FA21E870079ACD5 /* GCD.swift */,
+				6214A4081FADF3FE0048257E /* Delegates */,
 				62BB37721F9F76E10064615C /* Model */,
 				62C72EA01FA1E9E100922D3F /* View */,
 				62BA14241F9E1DF9001E8F2C /* Controller */,
@@ -174,6 +176,7 @@
 		62C72EA01FA1E9E100922D3F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6214A40B1FAE01E50048257E /* RoundedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				62DC10501FA323B90074850F /* ParseConvenience.swift in Sources */,
 				62BA14281F9E1E82001E8F2C /* TableViewController.swift in Sources */,
 				62BB37781F9F77520064615C /* UdacityClient.swift in Sources */,
+				6214A40C1FAE01E50048257E /* RoundedButton.swift in Sources */,
 				62DC104E1FA31D640074850F /* AddLocationMapViewController.swift in Sources */,
 				62BB37761F9F771A0064615C /* UdacityConstants.swift in Sources */,
 			);
