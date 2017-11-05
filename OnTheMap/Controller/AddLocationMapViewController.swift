@@ -68,14 +68,29 @@ class AddLocationMapViewController: UIViewController {
                     UdacityClient.sharedInstance().firstName = firstName
                     UdacityClient.sharedInstance().lastName = lastName
 
-                    // Post student location
-                    ParseClient.sharedInstance().postStudentLocation(accountKey: UdacityClient.sharedInstance().userID!, firstName: firstName, lastName: lastName, mapString: ParseClient.sharedInstance().mapString!, mediaURL: ParseClient.sharedInstance().mediaURL!, latitude: ParseClient.sharedInstance().latitude!, longitude: ParseClient.sharedInstance().longitude!) { (result, error) in
+                    // Check if user has already posted a student location
+                    if ParseClient.sharedInstance().objectID == nil {
                         
-                        if let error = error {
-                            AlertView.showAlert(controller: self, message: error.localizedDescription)
-                        } else {
-                            if let objectID = result, objectID.isEmpty == false {
-                                
+                        // Post new student location
+                        ParseClient.sharedInstance().postStudentLocation(accountKey: UdacityClient.sharedInstance().userID!, firstName: firstName, lastName: lastName, mapString: ParseClient.sharedInstance().mapString!, mediaURL: ParseClient.sharedInstance().mediaURL!, latitude: ParseClient.sharedInstance().latitude!, longitude: ParseClient.sharedInstance().longitude!) { (result, error) in
+                            
+                            if let error = error {
+                                AlertView.showAlert(controller: self, message: error.localizedDescription)
+                            } else {
+                                performUIUpdatesOnMain {
+                                    self.navigationController?.popToRootViewController(animated: true)
+                                }
+                            }
+                        }
+
+                    } else {
+                        
+                        // Update existing student location
+                        ParseClient.sharedInstance().updateStudentLocation(accountKey: UdacityClient.sharedInstance().userID!, firstName: firstName, lastName: lastName, mapString: ParseClient.sharedInstance().mapString!, mediaURL: ParseClient.sharedInstance().mediaURL!, latitude: ParseClient.sharedInstance().latitude!, longitude: ParseClient.sharedInstance().longitude!) { (result, error) in
+                            
+                            if let error = error {
+                                AlertView.showAlert(controller: self, message: error.localizedDescription)
+                            } else {
                                 performUIUpdatesOnMain {
                                     self.navigationController?.popToRootViewController(animated: true)
                                 }

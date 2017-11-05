@@ -60,13 +60,15 @@ extension ParseClient {
         }
     }
     
-    func updateStudentLocation (accountKey: String, firstName: String, lastName: String, mapString: String, mediaURL: String, latitude: String, longitude: String, completionHandlerForStudentLocation: @escaping (_ result: String?, _ error: NSError?) -> Void) {
+    // MARK: PUT Convenience Methods
+    
+    func updateStudentLocation (accountKey: String, firstName: String, lastName: String, mapString: String, mediaURL: String, latitude: Double, longitude: Double, completionHandlerForStudentLocation: @escaping (_ result: String?, _ error: NSError?) -> Void) {
         
-        let url = Constants.StudentLocationURL + objectID!
-        let jsonBody = "{\"\(JSONBodyKeys.UniqueKey)\": \"\(accountKey)\", \"\(JSONBodyKeys.FirstName)\": \"\(firstName)\", \"\(JSONBodyKeys.LastName)\": \"\(lastName)\",\"\(JSONBodyKeys.MapString)\": \"\(mapString)\", \"\(JSONBodyKeys.MediaURL)\": \"\(mediaURL)\",\"\(JSONBodyKeys.Latitude)\": \(latitude), \"\(JSONBodyKeys.Longitude)\": \(longitude)}"
+        let url = Constants.StudentLocationURL + self.objectID!
+        let jsonBody = "{\"\(JSONBodyKeys.UniqueKey)\": \"\(accountKey)\", \"\(JSONBodyKeys.FirstName)\": \"\(firstName)\", \"\(JSONBodyKeys.LastName)\": \"\(lastName)\",\"\(JSONBodyKeys.MapString)\": \"\(mapString)\", \"\(JSONBodyKeys.MediaURL)\": \"\(mediaURL)\",\"\(JSONBodyKeys.Latitude)\": \(String(latitude)), \"\(JSONBodyKeys.Longitude)\": \(String(longitude))}"
         
         /* Make the request */
-        let _ = taskForParsePOSTMethod(url, jsonBody: jsonBody) { (result, error) in
+        let _ = taskForParsePUTMethod(url, jsonBody: jsonBody) { (result, error) in
             
             if let error = error {
                 completionHandlerForStudentLocation(nil, error)

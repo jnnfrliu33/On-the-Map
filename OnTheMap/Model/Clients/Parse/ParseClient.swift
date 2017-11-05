@@ -116,6 +116,55 @@ class ParseClient: NSObject {
         return task
     }
     
+    // MARK: PUT
+    
+    func taskForParsePUTMethod (_ url: String, jsonBody: String, completionHandlerForParsePUT: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
+        
+        /* Build the URL, Configure the request */
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "PUT"
+        request.addValue(Constants.ParseApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue(Constants.RESTAPIKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonBody.data(using: String.Encoding.utf8)
+        
+        /* Make the request */
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            func sendError(_ error: String) {
+                print(error)
+                let userInfo = [NSLocalizedDescriptionKey : error]
+                completionHandlerForParsePUT(nil, NSError(domain: "taskForParsePUTMethod", code: 1, userInfo: userInfo))
+            }
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                sendError((error?.localizedDescription)!)
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                sendError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                sendError("No data was returned by the request!")
+                return
+            }
+            
+            /* Parse data */
+            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForParsePUT)
+        }
+        
+        /* Start the request */
+        task.resume()
+        return task
+    }
+    
+    
     // MARK: Helpers
     
     // Convert raw JSON into a usable Foundation object
