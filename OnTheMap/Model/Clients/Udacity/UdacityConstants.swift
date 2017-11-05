@@ -37,12 +37,10 @@ extension UdacityClient {
         // Session
         static let Session = "session"
         static let SessionID = "id"
-        static let Expiration = "expiration"
         
         // User Information
         static let UserInfoDictionary = "user"
         static let FirstName = "first_name"
         static let LastName = "last_name"
-        static let FacebookID = "_facebook_id"
     }
 }
