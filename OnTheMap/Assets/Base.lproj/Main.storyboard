@@ -112,7 +112,7 @@
                             <outlet property="delegate" destination="1ia-1g-C5u" id="Znz-sm-FPU"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="ListViewSelected" id="Y9j-nm-gs7"/>
+                    <tabBarItem key="tabBarItem" title="List" image="ListViewSelected" id="Y9j-nm-gs7"/>
                     <navigationItem key="navigationItem" title="On the Map" id="aEP-m1-FB6"/>
                     <connections>
                         <outlet property="studentLocationsTableView" destination="YYo-sH-Xcu" id="kGt-2b-zhJ"/>
@@ -296,7 +296,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HCs-2q-Ckc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="MapViewSelected" id="04U-9Q-3v0"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="MapViewSelected" id="04U-9Q-3v0"/>
                     <navigationItem key="navigationItem" title="On the Map" id="1RZ-Ya-vHZ"/>
                     <connections>
                         <outlet property="activityIndicator" destination="c9g-Ik-veq" id="8EZ-Gd-h9h"/>
