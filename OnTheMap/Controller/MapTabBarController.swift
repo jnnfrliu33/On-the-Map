@@ -16,6 +16,7 @@ class MapTabBarController: UITabBarController {
 
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
+    @IBOutlet weak var addLocationButton: UIBarButtonItem!
     
     // MARK: Actions
     
@@ -48,4 +49,32 @@ class MapTabBarController: UITabBarController {
         mapViewController.loadView()
         tableViewController.loadView()
     }
+    
+    @IBAction func addLocationPressed(_ sender: Any) {
+        
+        // Check if user has already posted a student location
+        if ParseClient.sharedInstance().objectID != nil {
+            let alert = UIAlertController(title: "Overwrite location?", message: AlertView.Messages.locationAlreadyPosted, preferredStyle: .alert)
+            
+            // Push AddLocationViewController if user clicks yes
+            let okAction = UIAlertAction(title: "Yes", style: .default, handler: { action in
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
+                self.navigationController?.pushViewController(controller, animated: true)
+            })
+            
+            // Dismiss the alert controller if user clicks cancel
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            
+            performUIUpdatesOnMain {
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+        } else {
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
 }

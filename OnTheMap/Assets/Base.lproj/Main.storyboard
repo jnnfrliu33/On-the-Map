@@ -46,7 +46,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="LFY-zN-d30">
                                 <connections>
-                                    <segue destination="rtc-Kf-DVO" kind="push" id="KIO-ra-s0f"/>
+                                    <action selector="addLocationPressed:" destination="gBb-vs-wus" id="kJH-x7-VvT"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="refresh" id="fYZ-YC-J4E">
@@ -62,6 +62,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="addLocationButton" destination="LFY-zN-d30" id="Axv-Qj-9Wa"/>
                         <outlet property="logoutButton" destination="Zry-MI-0Hd" id="NBd-gn-KGg"/>
                         <outlet property="refreshButton" destination="fYZ-YC-J4E" id="SUb-E1-caR"/>
                         <segue destination="n9v-Iz-xvb" kind="relationship" relationship="viewControllers" id="lSi-GX-nvr"/>
@@ -130,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-Op-LRz" userLabel="Main Stack View">
-                                <rect key="frame" x="50" y="114" width="275" height="223"/>
+                                <rect key="frame" x="50" y="70" width="275" height="223"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LocationIcon" translatesAutoresizingMaskIntoConstraints="NO" id="tM4-HE-o1L" userLabel="Udacity Logo">
                                         <rect key="frame" x="111.5" y="0.0" width="52" height="67"/>

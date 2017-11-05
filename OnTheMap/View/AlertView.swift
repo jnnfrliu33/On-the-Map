@@ -32,5 +32,6 @@ extension AlertView {
         static let websiteFieldEmpty = "Please enter a website url."
         static let emptyPlacemark = "Placemark not found."
         static let logoutFailed = "Unable to log out."
+        static let locationAlreadyPosted = "You have already posted a student location. Would you like to overwrite it?"
     }
 }
