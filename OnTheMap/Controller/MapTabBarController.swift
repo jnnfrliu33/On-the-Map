@@ -50,8 +50,13 @@ class MapTabBarController: UITabBarController {
                 StudentEntries.studentEntriesArray = studentLocations as! [StudentInformation]
                 
                 performUIUpdatesOnMain {
+                    mapViewController.activityIndicator.isHidden = false
+                    mapViewController.activityIndicator.startAnimating()
+                    
                     mapViewController.addAnnotationsToMapView(StudentEntries.studentEntriesArray)
                     tableViewController.loadView()
+                    
+                    mapViewController.activityIndicator.stopAnimating()
                 }
             } else {
                 AlertView.showAlert(controller: self, message: AlertView.Messages.emptyError)
