@@ -20,7 +20,6 @@ class MapViewController: UIViewController {
     
     // MARK: Properties
     
-    var studentLocations = [StudentInformation]()
     var annotations = [MKPointAnnotation]()
     
     // MARK: Life Cycle
@@ -30,9 +29,9 @@ class MapViewController: UIViewController {
         
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             if let studentLocations = studentLocations {
-                self.studentLocations = studentLocations as! [StudentInformation]
+                StudentEntries.studentEntriesArray = studentLocations as! [StudentInformation]
                 
-                for studentLocation in self.studentLocations {
+                for studentLocation in StudentEntries.studentEntriesArray {
                     let latitude = CLLocationDegrees(studentLocation.latitude!)
                     let longitude = CLLocationDegrees(studentLocation.longitude!)
                     let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)

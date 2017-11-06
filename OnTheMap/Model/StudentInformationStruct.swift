@@ -1,12 +1,12 @@
 //
-//  StudentInformation.swift
+//  StudentInformationStruct.swift
 //  OnTheMap
 //
-//  Created by Jennifer Liu on 29/10/2017.
+//  Created by Jennifer Liu on 06/11/2017.
 //  Copyright © 2017 Jennifer Liu. All rights reserved.
 //
 
-// MARK: - StudentInformation
+import Foundation
 
 struct StudentInformation {
     
@@ -52,16 +52,5 @@ struct StudentInformation {
         } else {
             mediaURL = ""
         }
-    }
-    
-    static func studentArrayFromResults(_ results: [[String:AnyObject]]) -> [StudentInformation] {
-        
-        var studentArray = [StudentInformation]()
-        
-        for result in results {
-            studentArray.append(StudentInformation(dictionary: result))
-        }
-        
-        return studentArray
     }
 }
