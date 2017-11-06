@@ -130,6 +130,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dGB-ID-Qhz">
+                                <rect key="frame" x="197" y="368" width="20" height="20"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-Op-LRz" userLabel="Main Stack View">
                                 <rect key="frame" x="50" y="70" width="314" height="223"/>
                                 <subviews>
@@ -188,14 +191,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dGB-ID-Qhz" firstAttribute="centerX" secondItem="AyD-pV-gIP" secondAttribute="centerX" id="619-PK-P21"/>
                             <constraint firstItem="AyD-pV-gIP" firstAttribute="trailing" secondItem="cfh-Op-LRz" secondAttribute="trailing" constant="50" id="Cck-7M-5Vv"/>
                             <constraint firstItem="cfh-Op-LRz" firstAttribute="leading" secondItem="AyD-pV-gIP" secondAttribute="leading" constant="50" id="G4w-h0-vP6"/>
                             <constraint firstItem="cfh-Op-LRz" firstAttribute="top" secondItem="AyD-pV-gIP" secondAttribute="top" constant="50" id="vNs-En-ah2"/>
+                            <constraint firstItem="dGB-ID-Qhz" firstAttribute="centerY" secondItem="AyD-pV-gIP" secondAttribute="centerY" id="yiB-06-lPv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AyD-pV-gIP"/>
                     </view>
                     <navigationItem key="navigationItem" id="zw7-An-nZO"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="dGB-ID-Qhz" id="KFW-bW-Tmz"/>
                         <outlet property="findLocationButton" destination="T9s-xv-UAX" id="kjZ-z5-6hQ"/>
                         <outlet property="locationTextField" destination="T4B-jb-Gpt" id="t0i-Du-lpH"/>
                         <outlet property="websiteTextField" destination="FxK-Zo-Ur1" id="woy-jP-ZFm"/>
@@ -219,9 +225,6 @@
                                     <outlet property="delegate" destination="2Hz-OS-LrP" id="CXX-J0-OVh"/>
                                 </connections>
                             </mapView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9sE-GC-XM5">
-                                <rect key="frame" x="197" y="368" width="20" height="20"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xra-ad-Tdi" customClass="RoundedButton" customModule="OnTheMap" customModuleProvider="target">
                                 <rect key="frame" x="129" y="614" width="156" height="36"/>
                                 <color key="backgroundColor" red="0.31334230303764343" green="0.69322562217712402" blue="0.87453764677047729" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -244,8 +247,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9sE-GC-XM5" firstAttribute="centerX" secondItem="kqs-Ww-4bb" secondAttribute="centerX" id="1Db-hd-e1m"/>
-                            <constraint firstItem="9sE-GC-XM5" firstAttribute="centerY" secondItem="kqs-Ww-4bb" secondAttribute="centerY" id="3NF-Ne-crW"/>
                             <constraint firstItem="0k4-zt-HNI" firstAttribute="leading" secondItem="kqs-Ww-4bb" secondAttribute="leading" id="LdA-OI-UM8"/>
                             <constraint firstItem="xra-ad-Tdi" firstAttribute="centerX" secondItem="kqs-Ww-4bb" secondAttribute="centerX" id="Xfc-Hl-B8O"/>
                             <constraint firstItem="kqs-Ww-4bb" firstAttribute="trailing" secondItem="0k4-zt-HNI" secondAttribute="trailing" id="ahb-Df-Rrf"/>
@@ -258,7 +259,6 @@
                         <viewLayoutGuide key="safeArea" id="kqs-Ww-4bb"/>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="9sE-GC-XM5" id="NAU-hK-EfM"/>
                         <outlet property="finishButton" destination="xra-ad-Tdi" id="TfA-ph-0hj"/>
                         <outlet property="mapView" destination="0k4-zt-HNI" id="dkG-1E-L2c"/>
                     </connections>

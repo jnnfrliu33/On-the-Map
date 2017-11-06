@@ -17,7 +17,6 @@ class AddLocationMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var finishButton: RoundedButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Properties
     
@@ -45,7 +44,6 @@ class AddLocationMapViewController: UIViewController {
             ParseClient.sharedInstance().longitude = location?.coordinate.longitude
             
             self.mapView.addAnnotation(annotation)
-            self.activityIndicator.stopAnimating()
             
         } else {
             AlertView.showAlert(controller: self, message: AlertView.Messages.emptyPlacemark)

@@ -18,6 +18,7 @@ class AddLocationViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
     @IBOutlet weak var findLocationButton: RoundedButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Properties
     
@@ -27,6 +28,10 @@ class AddLocationViewController: UIViewController {
     // MARK: Life Cycle
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.activityIndicator.isHidden = true
+        
         locationTextField.delegate = textFieldDelegate
         websiteTextField.delegate = textFieldDelegate
     }
@@ -42,10 +47,18 @@ class AddLocationViewController: UIViewController {
     @IBAction func findLocationPressed(_ sender: Any) {
         if locationTextField.text?.isEmpty == false {
             
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
+            
             geocoder.geocodeAddressString(locationTextField.text!) { (placemarks, error) in
                 
                 if let error = error {
                     AlertView.showAlert(controller: self, message: error.localizedDescription)
+                    
+                    performUIUpdatesOnMain {
+                        self.activityIndicator.stopAnimating()
+                    }
+                    
                 } else {
                     if let placemark = placemarks?.first {
                         
@@ -54,6 +67,7 @@ class AddLocationViewController: UIViewController {
                         // Save the placemark information in the AddLocationMapViewController to be used
                         controller.placemark = placemark
                         
+                        self.activityIndicator.stopAnimating()
                         self.navigationController?.pushViewController(controller, animated: true)
                     }
                 }
