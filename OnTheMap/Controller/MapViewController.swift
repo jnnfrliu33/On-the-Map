@@ -30,33 +30,47 @@ class MapViewController: UIViewController {
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             if let studentLocations = studentLocations {
                 StudentEntries.studentEntriesArray = studentLocations as! [StudentInformation]
+                self.addAnnotationsToMapView(StudentEntries.studentEntriesArray)
                 
-                for studentLocation in StudentEntries.studentEntriesArray {
-                    let latitude = CLLocationDegrees(studentLocation.latitude!)
-                    let longitude = CLLocationDegrees(studentLocation.longitude!)
-                    let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                    
-                    let firstName = studentLocation.firstName!
-                    let lastName = studentLocation.lastName!
-                    let mediaURL = studentLocation.mediaURL!
-                    
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = coordinate
-                    annotation.title = firstName + " " + lastName
-                    annotation.subtitle = mediaURL
-                    
-                    self.annotations.append(annotation)
+                performUIUpdatesOnMain {
+                    self.activityIndicator.stopAnimating()
                 }
             } else {
                 AlertView.showAlert(controller: self, message: AlertView.Messages.emptyError)
             }
-            
-            self.mapView.addAnnotations(self.annotations)
-            
-            performUIUpdatesOnMain {
-                self.activityIndicator.stopAnimating()
-            }
         }
+    }
+    
+    // MARK: Helpers
+    
+    func removeAnnotations() {
+        mapView.removeAnnotations(annotations)
+        annotations.removeAll()
+    }
+    
+    func addAnnotationsToMapView(_ studentLocations: [StudentInformation]) {
+        
+        // Remove annotations from map view if previously loaded
+        removeAnnotations()
+        
+        for studentLocation in StudentEntries.studentEntriesArray {
+            let latitude = CLLocationDegrees(studentLocation.latitude!)
+            let longitude = CLLocationDegrees(studentLocation.longitude!)
+            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            
+            let firstName = studentLocation.firstName!
+            let lastName = studentLocation.lastName!
+            let mediaURL = studentLocation.mediaURL!
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = firstName + " " + lastName
+            annotation.subtitle = mediaURL
+            
+            self.annotations.append(annotation)
+        }
+        
+        mapView.addAnnotations(annotations)
     }
 }
 

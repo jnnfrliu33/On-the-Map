@@ -42,12 +42,21 @@ class MapTabBarController: UITabBarController {
         let mapViewController = self.viewControllers?[0] as! MapViewController
         let tableViewController = self.viewControllers?[1] as! TableViewController
         
-        // Remove previous annotations from mapViewController
-        mapViewController.mapView.removeAnnotations(mapViewController.annotations)
-        
-        // Reload the view controllers
-        mapViewController.loadView()
-        tableViewController.loadView()
+        // Make a new server call
+        ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
+            if let studentLocations = studentLocations {
+                
+                // Refresh the entries in studentEntriesArray
+                StudentEntries.studentEntriesArray = studentLocations as! [StudentInformation]
+                
+                performUIUpdatesOnMain {
+                    mapViewController.addAnnotationsToMapView(StudentEntries.studentEntriesArray)
+                    tableViewController.loadView()
+                }
+            } else {
+                AlertView.showAlert(controller: self, message: AlertView.Messages.emptyError)
+            }
+        }
     }
     
     @IBAction func addLocationPressed(_ sender: Any) {
