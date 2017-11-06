@@ -66,10 +66,14 @@ extension TableViewController {
         // Access student location for a given row
         let studentLocation = StudentEntries.studentEntriesArray[(indexPath as NSIndexPath).row]
         
-        // Open the URL in Safari for the given row
+        // Open the URL in Safari in the given row
         let app = UIApplication.shared
-        if let toOpen = studentLocation.mediaURL {
-            app.open(URL(string: toOpen)!, options: [:], completionHandler: nil)
+        
+        // Make sure URL is valid
+        if let url = URL(string: (studentLocation.mediaURL)!), app.canOpenURL(url) {
+            app.open(url, options: [:], completionHandler: nil)
+        } else {
+            AlertView.showAlert(controller: self, message: AlertView.Messages.invalidURL)
         }
     }
 }
