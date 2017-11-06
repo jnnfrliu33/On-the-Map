@@ -52,6 +52,10 @@ class LoginViewController: UIViewController {
                 if let error = error {
                     AlertView.showAlert(controller: self, message: error.localizedDescription)
                     
+                    performUIUpdatesOnMain {
+                        self.activityIndicator.stopAnimating()
+                    }
+                    
                 } else {
                     if let userID = result?[UdacityClient.JSONResponseKeys.AccountKey] as? String {
                         
