@@ -21,11 +21,16 @@ class TableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Check if student entries array has already been populated
-        if StudentEntries.studentEntriesArray.isEmpty == false {
-            self.studentLocationsTableView.reloadData()
-        } else {
-            AlertView.showAlert(controller: self, message: AlertView.Messages.emptyError)
+        ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
+            if let studentLocations = studentLocations {
+                StudentEntries.studentEntriesArray = studentLocations as! [StudentInformation]
+                
+                performUIUpdatesOnMain {
+                    self.studentLocationsTableView.reloadData()
+                }
+            } else {
+                AlertView.showAlert(controller: self, message: AlertView.Messages.emptyError)
+            }
         }
     }
 }
